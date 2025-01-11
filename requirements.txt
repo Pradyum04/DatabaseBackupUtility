@@ -1,0 +1,23 @@
+# Database Connectivity Libraries
+mysql-connector-python     # For MySQL database connectivity
+psycopg2                   # For PostgreSQL database connectivity
+pymongo                    # For MongoDB database connectivity
+
+# Scheduling Library
+schedule                   # For scheduling backup operations
+
+# Logging and Utility Libraries
+logging                    # For logging backup activities (built-in, included for clarity)
+argparse                   # For CLI argument parsing (built-in, included for clarity)
+
+# File Compression
+shutil                     # For file compression (built-in, included for clarity)
+
+# Optional: Testing and Linting (if needed)
+pytest                     # For writing unit tests
+flake8                     # For checking Python code quality
+
+# Cloud Integration (Optional for future expansion)
+boto3                      # AWS S3 integration (optional for Approach-2)
+google-cloud-storage       # Google Cloud Storage integration (optional for Approach-2)
+azure-storage-blob         # Azure Blob Storage integration (optional for Approach-2)
