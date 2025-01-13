@@ -29,7 +29,10 @@ On macOS/Linux
 3. Install dependencies
     pip install -r requirements.txt
 
-4. Deactivate the environment when done
+4. How to check the installed dependencies and its version
+    pip list
+
+5. Deactivate the environment when done
     deactivate
 
 
