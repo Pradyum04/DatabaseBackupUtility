@@ -1,0 +1,18 @@
+DatabaseBackupUtility/
+├── config/
+│   └── config.json         # Database connection parameters
+├── logs/
+│   └── backup.log          # Log file for backup activities
+├── backups/
+│   └── (empty for now)     # Folder for storing backups
+├── src/
+│   ├── database/           # Scripts for handling specific database backups
+│   ├── compression.py      # For compressing backups
+│   ├── restore.py          # Logic for restoring backups
+│   ├── cli.py              # Main CLI script
+│   └── utils.py            # Utility functions
+├── tests/
+│   └── (empty for now)     # Folder for test scripts
+├── requirements.txt        # Python dependencies (already skipped)
+├── README.md               # Documentation (already done)
+└── .gitignore              # Git ignore file
