@@ -1,0 +1,27 @@
+{
+    "mysql": {
+      "host": "localhost",
+      "port": 3306,
+      "username": "root",
+      "password": "password",
+      "database": "example_db"
+    },
+    "postgresql": {
+      "host": "localhost",
+      "port": 5432,
+      "username": "postgres_user",
+      "password": "password",
+      "database": "example_db"
+    },
+    "mongodb": {
+      "host": "localhost",
+      "port": 27017,
+      "username": "mongo_user",
+      "password": "password",
+      "database": "example_db"
+    },
+    "sqlite": {
+      "database": "example.db"
+    }
+  }
+  
