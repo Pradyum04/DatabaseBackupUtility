@@ -1,18 +1,26 @@
 DatabaseBackupUtility/
-├── config/
-│   └── config.json         # Database connection parameters
-├── logs/
-│   └── backup.log          # Log file for backup activities
-├── backups/
-│   └── (empty for now)     # Folder for storing backups
-├── src/
-│   ├── database/           # Scripts for handling specific database backups
-│   ├── compression.py      # For compressing backups
-│   ├── restore.py          # Logic for restoring backups
-│   ├── cli.py              # Main CLI script
-│   └── utils.py            # Utility functions
-├── tests/
-│   └── (empty for now)     # Folder for test scripts
-├── requirements.txt        # Python dependencies (already skipped)
-├── README.md               # Documentation (already done)
-└── .gitignore              # Git ignore file
+├── backups/                # 🔹 Folder for storing backup files
+│   └── (backup files will be stored here)
+├── config/                 # 🔹 Configuration folder
+│   └── config.json         # ✅ Stores database connection details
+├── logs/                   # 🔹 Folder for log files
+│   └── backup.log          # ✅ Log file for backup and restore activities
+├── src/                    # 🔹 Main source code folder
+│   ├── cli.py              # ✅ Main CLI script to run backup/restore
+│   ├── database/           # 🔹 Contains all database-related scripts
+│   │   ├── __init__.py     # ✅ Required for package recognition
+│   │   ├── mysql_backup.py # ✅ MySQL backup logic
+│   │   ├── pgsql_backup.py # ✅ PostgreSQL backup logic
+│   │   ├── mongo_backup.py # ✅ MongoDB backup logic
+│   │   ├── sqlite_backup.py # ✅ SQLite backup logic
+│   │   ├── restore.py      # ✅ Restore logic for all databases
+│   ├── compression.py      # 🔹 (Optional) Handles compression of backup files
+│   ├── utils.py            # ✅ Utility functions (config loading, connection testing)
+├── tests/                  # 🔹 Folder for unit tests
+│   ├── test_backup.py      # 🔹 Unit tests for backup functions
+│   ├── test_restore.py     # 🔹 Unit tests for restore functions
+│   ├── test_utils.py       # 🔹 Unit tests for utility functions
+├── .gitignore              # ✅ Git ignore file (to exclude unnecessary files)
+├── README.md               # ✅ Documentation file
+├── requirements.txt        # ✅ List of required Python dependencies
+└── LICENSE                 # 🔹 License file (if applicable)
