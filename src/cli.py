@@ -1,10 +1,13 @@
 import argparse
 from utils import load_config, test_connection  # Import utility functions
-from database.mysql_backup import backup_mysql  # Example backup function for MySQL
-from database.restore import restore_database  # Example restore function
+from database.mysql_backup import backup_mysql
+from database.pgsql_backup import backup_postgresql
+from database.mongo_backup import backup_mongodb
+from database.sqlite_backup import backup_sqlite
+from database.restore import restore_database  # General restore logic
 
 def main():
-    # Set up argument parser
+    # Set up the argument parser
     parser = argparse.ArgumentParser(description="Database Backup Utility")
     parser.add_argument(
         "--db_type",
@@ -22,9 +25,10 @@ def main():
         help="Restore a database from the specified backup file"
     )
 
+    # Parse the arguments
     args = parser.parse_args()
 
-    # Load configuration
+    # Load configuration for the selected database type
     try:
         config = load_config(args.db_type)
     except ValueError as e:
@@ -39,30 +43,24 @@ def main():
     # Perform backup
     if args.backup:
         print(f"Starting backup for {args.db_type}...")
-    if args.db_type == "mysql":
-        backup_mysql(config)
-    elif args.db_type == "postgresql":
-        from database.pgsql_backup import backup_postgresql
-        backup_postgresql(config)
-    elif args.db_type == "mongodb":
-        from database.mongo_backup import backup_mongodb
-        backup_mongodb(config)
-    elif args.db_type == "sqlite":
-        from database.sqlite_backup import backup_sqlite
-        backup_sqlite(config)
-    else:
-        print(f"Backup not implemented for {args.db_type} yet.")
-
+        if args.db_type == "mysql":
+            backup_mysql(config)
+        elif args.db_type == "postgresql":
+            backup_postgresql(config)
+        elif args.db_type == "mongodb":
+            backup_mongodb(config)
+        elif args.db_type == "sqlite":
+            backup_sqlite(config)
+        else:
+            print(f"Backup not implemented for {args.db_type} yet.")
 
     # Perform restore
     elif args.restore:
         print(f"Restoring {args.db_type} database from {args.restore}...")
-        restore_database(config, args.restore)
+        restore_database(config, args.db_type, args.restore)
 
     else:
         print("No operation specified. Use --help for usage details.")
 
 if __name__ == "__main__":
     main()
-
-
